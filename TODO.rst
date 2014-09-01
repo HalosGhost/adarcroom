@@ -7,7 +7,12 @@ To-Do
    - [ ] logging
    - [ ] buttons (basic keybind handling)
 
-#. [ ] Gather Wood / Check Traps mechanics
+#. [-] State mechanics
+
+   - [X] Stoke Fire
+   - [ ] Room Temperature
+   - [X] Gather Wood
+   - [ ] Check Traps
 
 #. [ ] Random event mechanics
 
