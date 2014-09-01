@@ -1,0 +1,2 @@
+CFLAGS += -Wall -lncursesw -std=c11
+CC = gcc
