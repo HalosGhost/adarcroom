@@ -14,7 +14,7 @@ However, I use `tup <http://gittup.org/tup/>`_ as a build system; so, you will n
 
 For the moment, the ``Tupfile`` relies on ``gcc`` (``clang`` and other compilers are not officially supported), but there should be no reason that it would fail to build with ``clang``.
 
-In order to build the project, you can run the following steps:
+In order to build the project, you can run the following steps::
 
     git clone https://github.com/HalosGhost/adarcroom
     cd adarcroom
