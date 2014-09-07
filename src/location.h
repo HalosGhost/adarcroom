@@ -3,6 +3,7 @@
 
 // Libraries //
 #include <ncurses.h>
+#include <stdlib.h>
 #include "resource.h"
 
 // Forward Declarations //
@@ -16,6 +17,15 @@ enum FIRE_STATE {
 
 enum ROOM_TEMP {
     FREEZING, COLD, MILD, WARM, HOT
+};
+
+const char * TRAP_DROPS [] = {
+    [FUR]    = "scraps of fur",
+    [MEAT]   = "bits of meat",
+    [SCALES] = "strange scales",
+    [TEETH]  = "scattered teeth",
+    [CLOTH]  = "tattered cloth",
+    [CHARM]  = "a crudely made charm"
 };
 
 enum FIRE_STATE
@@ -41,7 +51,9 @@ check_traps (unsigned int r [], unsigned short c []) {
     short drops = c[TRAP] + (r[BAIT] < c[TRAP] ? r[BAIT] : c[TRAP]);
 
     for ( int i = 0; i < drops; i ++ ) {
+        //int r_val = rand();
         // do some fancy random stuff to choose what's dropped
+        // log what's dropped
     }
 }
 
