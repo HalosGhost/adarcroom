@@ -6,9 +6,13 @@
 
 // Forward Declarations //
 enum adr_c_type {
+    /* Resource Gathering */
     TRAP, CART, 
     HUT, LODGE, TRADE_POST, TANNERY, SMOKEHOUSE, WORKSHOP, STEELWORKS, ARSENAL, 
-    TORCH, WATERSKIN, CASK, WATER_TANK, 
+
+    /* Expedition Items */
+    TORCH, 
+    WATERSKIN, CASK, WATER_TANK, 
     RUCKSACK, WAGON, CONVOY,
     L_ARMOR, I_ARMOR, S_ARMOR,
     BONE_SPEAR, I_SWORD, S_SWORD, RIFLE
