@@ -8,10 +8,10 @@
 enum adr_r_type {
     FUR, SCALES, TEETH, WOOD, MEAT, BAIT, CLOTH, LEATHER, IRON, COAL, STEEL,
     SULPHUR, MEDECINE, COMPASS, CURED_MEAT, BULLETS, ENERGY_CELLS, BOLAS, 
-    GRENADES, BAYONET, ALIEN_ALLOY
+    CHARM, GRENADES, BAYONET, ALIEN_ALLOY
 };
 
-unsigned short adr_r_cost [][3] = {
+const unsigned short adr_r_cost [][3] = {
     [SCALES]       = { [FUR] = 150                                 },
     [TEETH]        = { [FUR] = 300                                 },
     [COAL]         = { [FUR] = 200,                  [TEETH] = 50  },
@@ -38,10 +38,10 @@ adr_trade (enum adr_r_type t, unsigned int r []) {
         return; // Not enough teeth
     }
 
-    r[FUR] -= adr_r_cost[t][FUR];
+    r[FUR]    -= adr_r_cost[t][FUR];
     r[SCALES] -= adr_r_cost[t][SCALES];
-    r[TEETH] -= adr_r_cost[t][TEETH];
-    r[t] += 1;
+    r[TEETH]  -= adr_r_cost[t][TEETH];
+    r[t]      += 1;
 }
 
 #endif // __ADR_RESOURCE_H__
