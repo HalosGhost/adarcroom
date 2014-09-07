@@ -15,7 +15,7 @@ enum adr_c_type {
     WATERSKIN, CASK, WATER_TANK, 
     RUCKSACK, WAGON, CONVOY,
     L_ARMOR, I_ARMOR, S_ARMOR,
-    BONE_SPEAR, I_SWORD, S_SWORD, RIFLE
+    BONE_SPEAR, I_SWORD, S_SWORD, RIFLE, LASER_RIFLE
 };
 
 unsigned short adr_c_cost [][12] = {
