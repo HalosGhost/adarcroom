@@ -18,7 +18,6 @@ In order to build the project, you can run the following steps::
 
     git clone https://github.com/HalosGhost/adarcroom
     cd adarcroom
-    tup init
     tup upd
 
 After running ``tup upd``, the binary ``adarcroom`` will be present in the ``src`` directory.
