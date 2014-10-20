@@ -9,12 +9,12 @@
 
 // Forward Declarations //
 struct adr_state {
-    enum LOCATION adr_loc;
-    enum FIRE_STATE adr_fire;
-    enum ROOM_TEMP adr_temp;
-    unsigned int adr_rs [ALIEN_ALLOY + 1];
-    unsigned short adr_cs [RIFLE + 1];
-    unsigned short adr_vs [MUNITIONIST + 1];
+    enum LOCATION loc;
+    enum FIRE_STATE fire;
+    enum ROOM_TEMP temp;
+    unsigned int rs [ALIEN_ALLOY + 1];
+    unsigned short cs [RIFLE + 1];
+    unsigned short vs [MUNITIONIST + 1];
 };
 
 #endif // __ADR_MAIN_H__
