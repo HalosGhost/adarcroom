@@ -1,9 +1,6 @@
 #ifndef __ADR_RESOURCE_H__
 #define __ADR_RESOURCE_H__
 
-// Libraries //
-
-
 // Forward Declarations //
 enum adr_r_type {
     FUR, SCALES, TEETH, WOOD, MEAT, BAIT, CLOTH, LEATHER, IRON, COAL, STEEL,
@@ -11,38 +8,10 @@ enum adr_r_type {
     CHARM, GRENADES, BAYONET, ALIEN_ALLOY
 };
 
-const unsigned short adr_r_cost [][3] = {
-    [SCALES]       = { [FUR] = 150                                 },
-    [TEETH]        = { [FUR] = 300                                 },
-    [COAL]         = { [FUR] = 200,                  [TEETH] = 50  },
-    [STEEL]        = { [FUR] = 300,  [SCALES] = 50,  [TEETH] = 50  },
-    [COMPASS]      = { [FUR] = 400,  [SCALES] = 750, [TEETH] = 300 },
-    [ALIEN_ALLOY]  = { [FUR] = 1500, [SCALES] = 750, [TEETH] = 300 },
-    [IRON]         = { [FUR] = 150,  [SCALES] = 50                 },
-    [BULLETS]      = {               [SCALES] = 10                 },
-    [ENERGY_CELLS] = {               [SCALES] = 10,  [TEETH] = 10  },
-    [MEDECINE]     = {               [SCALES] = 50,  [TEETH] = 30  },
-    [GRENADES]     = {               [SCALES] = 100, [TEETH] = 50  },
-    [BAYONET]      = {               [SCALES] = 500, [TEETH] = 250 },
-    [BOLAS]        = {                               [TEETH] = 10  }
-};
+extern const unsigned short adr_r_cost [][3];
 
-void
-adr_trade (enum adr_r_type t, unsigned int r []) {
-
-    if ( adr_r_cost[t][FUR] > r[FUR] ) {
-        return; // Not enough fur
-    } else if ( adr_r_cost[t][SCALES] > r[SCALES] ) {
-        return; // Not enough scales
-    } else if ( adr_r_cost[t][TEETH] > r[TEETH] ) {
-        return; // Not enough teeth
-    }
-
-    r[FUR]    -= adr_r_cost[t][FUR];
-    r[SCALES] -= adr_r_cost[t][SCALES];
-    r[TEETH]  -= adr_r_cost[t][TEETH];
-    r[t]      += 1;
-}
+extern void
+adr_trade (enum adr_r_type t, unsigned int r []);
 
 #endif // __ADR_RESOURCE_H__
 // vim: set ts=4 sw=4 et:
