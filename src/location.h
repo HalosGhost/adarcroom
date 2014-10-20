@@ -15,6 +15,8 @@ enum ROOM_TEMP {
 };
 
 extern const char * TRAP_DROPS [];
+extern const char * FIRE_DESC [];
+extern const char * TEMP_DESC [];
 
 extern enum FIRE_STATE
 adr_stoke_fire (unsigned int r [], enum FIRE_STATE f);

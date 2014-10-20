@@ -14,6 +14,22 @@ const char * TRAP_DROPS [] = {
     [CHARM]  = "a crudely made charm"
 };
 
+const char * FIRE_DESC [] = {
+    [DEAD]       = "dead",
+    [SMOLDERING] = "smoldering",
+    [FLICKERING] = "flickering",
+    [BURNING]    = "burning",
+    [ROARING]    = "roaring"
+};
+
+const char * TEMP_DESC [] = {
+    [FREEZING] = "freezing",
+    [COLD]     = "cold",
+    [MILD]     = "mild",
+    [WARM]     = "warm",
+    [HOT]      = "hot"
+};
+
 enum FIRE_STATE
 adr_stoke_fire (unsigned int r [], enum FIRE_STATE f) {
 
