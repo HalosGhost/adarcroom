@@ -8,12 +8,12 @@
 #include "location.h"
 
 // Forward Declarations //
-enum LOCATION adr_loc;
-enum FIRE_STATE adr_fire;
-enum ROOM_TEMP adr_temp;
-unsigned int adr_rs [ALIEN_ALLOY + 1];
-unsigned short adr_cs [RIFLE + 1];
-unsigned short adr_vs [MUNITIONIST + 1];
+static enum LOCATION adr_loc;
+static enum FIRE_STATE adr_fire;
+static enum ROOM_TEMP adr_temp;
+static unsigned int adr_rs [ALIEN_ALLOY + 1];
+static unsigned short adr_cs [RIFLE + 1];
+static unsigned short adr_vs [MUNITIONIST + 1];
 
 #endif // __ADR_MAIN_H__
 // vim: set ts=4 sw=4 et:
