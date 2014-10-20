@@ -2,7 +2,7 @@
 To-Do
 =====
 
-#. [ ] Ncurses interface
+#. [-] Ncurses interface
 
    - [ ] logging
    - [ ] buttons (basic keybind handling)
