@@ -14,20 +14,24 @@ const char * TRAP_DROPS [] = {
     [CHARM]  = "a crudely made charm"
 };
 
+#define _FIREP "The fire is "
+
 const char * FIRE_DESC [] = {
-    [DEAD]       = "dead",
-    [SMOLDERING] = "smoldering",
-    [FLICKERING] = "flickering",
-    [BURNING]    = "burning",
-    [ROARING]    = "roaring"
+    [DEAD]       = _FIREP "dead.",
+    [SMOLDERING] = _FIREP "smoldering.",
+    [FLICKERING] = _FIREP "flickering.",
+    [BURNING]    = _FIREP "burning.",
+    [ROARING]    = _FIREP "roaring."
 };
 
+#define _TEMPP "The room is "
+
 const char * TEMP_DESC [] = {
-    [FREEZING] = "freezing",
-    [COLD]     = "cold",
-    [MILD]     = "mild",
-    [WARM]     = "warm",
-    [HOT]      = "hot"
+    [FREEZING] = _TEMPP "freezing.",
+    [COLD]     = _TEMPP "cold.",
+    [MILD]     = _TEMPP "mild.",
+    [WARM]     = _TEMPP "warm.",
+    [HOT]      = _TEMPP "hot."
 };
 
 enum FIRE_STATE

@@ -21,11 +21,6 @@ main (int argc, char * argv []) {
         LOG, TRVL, INV, ROOM, OTSD, PATH, WRLD, SHIP
     };
 
-    char fire_msg [23];
-    char temp_msg [22];
-    snprintf(fire_msg, 23, "The fire is %s.", FIRE_DESC[state.fire]);
-    snprintf(temp_msg, 22, "The room is %s.", TEMP_DESC[state.temp]);
-
     WINDOW * wins [SHIP + 1];
     initscr(); noecho(); cbreak(); curs_set(0);
     refresh();
@@ -37,8 +32,8 @@ main (int argc, char * argv []) {
     box(wins[ROOM], 0, 0);
     box(wins[INV], 0, 0);
 
-    WLOG(1, fire_msg);
-    WLOG(1, temp_msg);
+    WLOG(1, FIRE_DESC[state.fire]);
+    WLOG(1, TEMP_DESC[state.temp]);
     WLOG(3, craftables[RIFLE].build_msg);
     //mvwprintw(wins[LOG], 1, 1, "The fire is %s.\n", FIRE_DESC[adr_fire]);
     //wprintw(wins[LOG], "The room is %s.", TEMP_DESC[adr_temp]);
