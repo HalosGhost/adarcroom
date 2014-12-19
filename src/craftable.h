@@ -31,7 +31,7 @@ struct adr_c {
 extern struct adr_c craftables [];
 
 extern short
-adr_craft (enum adr_c_type t, unsigned short c [], unsigned int r []);
+adr_craft (enum adr_c_type, unsigned short [], unsigned int []);
 
 #endif // ADR_CRAFTABLE_H
 // vim: set ts=4 sw=4 et:

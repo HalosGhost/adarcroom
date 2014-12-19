@@ -13,7 +13,7 @@ enum adr_v_type {
 extern short adr_v_income [][16];
 
 extern short
-adr_work (enum adr_v_type t, unsigned short n, unsigned int r []);
+adr_work (enum adr_v_type, unsigned short, unsigned int []);
 
 #endif // ADR_VILLAGER_H
 // vim: set ts=4 sw=4 et:
