@@ -1,5 +1,5 @@
-#ifndef __ADR_VILLAGER_H__
-#define __ADR_VILLAGER_H__
+#ifndef ADR_VILLAGER_H
+#define ADR_VILLAGER_H
 
 // Libraries //
 #include "craftable.h"
@@ -15,5 +15,5 @@ extern short adr_v_income [][16];
 extern short
 adr_work (enum adr_v_type t, unsigned short n, unsigned int r []);
 
-#endif // __ADR_VILLAGER_H__
+#endif // ADR_VILLAGER_H
 // vim: set ts=4 sw=4 et:

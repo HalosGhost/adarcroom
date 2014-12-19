@@ -1,5 +1,5 @@
-#ifndef __ADR_LOCATION_H__
-#define __ADR_LOCATION_H__
+#ifndef ADR_LOCATION_H
+#define ADR_LOCATION_H
 
 // Forward Declarations //
 enum LOCATION {
@@ -27,5 +27,5 @@ gather_wood (unsigned int r [], unsigned short c []);
 extern void
 check_traps (unsigned int r [], unsigned short c []);
 
-#endif // __ADR_LOCATION_H__
+#endif // ADR_LOCATION_H
 // vim: set ts=4 sw=4 et:
