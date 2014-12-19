@@ -4,8 +4,9 @@ To-Do
 
 #. [-] Ncurses interface
 
-   - [ ] logging
-   - [ ] buttons (basic keybind handling)
+   - [-] logging
+   - [ ] buttons
+   - [ ] basic keybinds
 
 #. [-] State mechanics
 
