@@ -29,7 +29,7 @@ unsigned short adr_c_cost [][12] = {
 };
 
 struct adr_c craftables [] = {
-    [TRAP] = { 
+    [TRAP] = {
         .name = "trap", .max = 10,
         .avail_msg = "The builder says she can make     "
                      "traps to catch any creatures that "
@@ -38,7 +38,7 @@ struct adr_c craftables [] = {
         .max_msg   = "More traps won't help now."
     },
 
-    [CART] = { 
+    [CART] = {
         .name = "cart", .max = 1,
         .avail_msg = "The builder says she can make a   "
                      "cart for carrying wood.",
@@ -46,7 +46,7 @@ struct adr_c craftables [] = {
                      "wood from the forest."
     },
 
-    [HUT] = { 
+    [HUT] = {
         .name = "hut", .max = 20,
         .avail_msg = "The builder says there are more   "
                      "wanderers and that they'll work   "
@@ -57,7 +57,7 @@ struct adr_c craftables [] = {
         .max_msg   = "There's no more room for huts."
     },
 
-    [LODGE] = { 
+    [LODGE] = {
         .name = "lodge", .max = 1,
         .avail_msg = "Villagers could help hunt, given   "
                      "the means.",
@@ -65,7 +65,7 @@ struct adr_c craftables [] = {
                      "the forest, a ways out of town."
     },
 
-    [TRADE_POST] = { 
+    [TRADE_POST] = {
         .name = "trading post", .max = 1,
         .avail_msg = "A trading post would make commerce "
                      "easier",
@@ -74,7 +74,7 @@ struct adr_c craftables [] = {
                      "for while."
     },
 
-    [TANNERY] = { 
+    [TANNERY] = {
         .name = "tannery", .max = 1,
         .avail_msg = "The builder says leather could be  "
                      "useful and that the villagers      "
@@ -83,7 +83,7 @@ struct adr_c craftables [] = {
                      "the edge of the village."
     },
 
-    [SMOKEHOUSE] = { 
+    [SMOKEHOUSE] = {
         .name = "smokehouse", .max = 1,
         .avail_msg = "The builder says she can fix       "
                      "something up to help keep the meat "
@@ -92,7 +92,7 @@ struct adr_c craftables [] = {
                      "smokehouse and looks hungry."
     },
 
-    [WORKSHOP] = { 
+    [WORKSHOP] = {
         .name = "workshop", .max = 1,
         .avail_msg = "The builder says she could make    "
                      "finer things if she had the tools.",
@@ -100,7 +100,7 @@ struct adr_c craftables [] = {
                      "work now that the workshop's done."
     },
 
-    [STEELWORKS] = { 
+    [STEELWORKS] = {
         .name = "steelworks", .max = 1,
         .avail_msg = "The builder says the villagers     "
                      "could make steel, given the means.",
@@ -108,7 +108,7 @@ struct adr_c craftables [] = {
                      "the steelworks fires up."
     },
 
-    [ARSENAL] = { 
+    [ARSENAL] = {
         .name = "arsenal", .max = 1,
         .avail_msg = "The builder says it might be       "
                      "useful to have a steady supply of  "
@@ -117,81 +117,81 @@ struct adr_c craftables [] = {
                      "to bring forth weapons of war."
     },
 
-    [TORCH] = { 
+    [TORCH] = {
         .name = "torch", .max = 0,
         .build_msg = "A torch to keep the dark away."
     },
 
-    [WATERSKIN] = { 
+    [WATERSKIN] = {
         .name = "waterskin", .max = 1,
         .build_msg = "This waterskin'll hold a bit of    "
                      "water at least."
     },
 
-    [CASK] = { 
+    [CASK] = {
         .name = "cask", .max = 1,
         .build_msg = "the cask holds enough water for    "
                      "longer expeditions"
     },
 
-    [WATER_TANK] = { 
+    [WATER_TANK] = {
         .name = "water tank", .max = 1,
         .build_msg = "Never go thirsty again."
     },
 
-    [RUCKSACK] = { 
+    [RUCKSACK] = {
         .name = "rucksack", .max = 1,
         .build_msg = "Carrying more means longer         "
                      "expeditions."
     },
 
-    [WAGON] = { 
+    [WAGON] = {
         .name = "wagon", .max = 1,
         .build_msg = "The wagon can carry a lot of       "
                      "supplies."
     },
 
-    [CONVOY] = { 
+    [CONVOY] = {
         .name = "convoy", .max = 1,
         .build_msg = "The convoy can haul mostly         "
                      "everything."
     },
 
-    [L_ARMOR] = { 
+    [L_ARMOR] = {
         .name = "leather armor", .max = 1,
         .build_msg = "Leather's not strong; better than  "
                      "rags though."
     },
 
-    [I_ARMOR] = { 
+    [I_ARMOR] = {
         .name = "iron armor", .max = 1,
         .build_msg = "Protect yourself a little better."
     },
 
-    [S_ARMOR] = { 
+    [S_ARMOR] = {
         .name = "steel armor", .max = 1,
         .build_msg = "The best armor you can make."
     },
 
-    [BONE_SPEAR] = { 
+    [BONE_SPEAR] = {
         .name = "bone spear", .max = 0,
         .build_msg = "Not an elegant weapon, but good    "
                      "for stabbing."
     },
 
-    [I_SWORD] = { 
+    [I_SWORD] = {
         .name = "iron sword", .max = 0,
         .build_msg = "A sharp sword; good for            "
                      "protection."
     },
 
-    [S_SWORD] = { 
+    [S_SWORD] = {
         .name = "steel sword", .max = 0,
         .build_msg = "The steel is strong and the blade, "
                      "true."
     },
 
-    [RIFLE] = { 
+    [RIFLE] = {
         .name = "rifle", .max = 0,
         .build_msg = "Black powder and bullets, like old "
                      "times."
