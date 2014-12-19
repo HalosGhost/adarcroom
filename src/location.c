@@ -58,7 +58,7 @@ check_traps (unsigned r [], unsigned short c []) {
                                       (unsigned short )r[BAIT] :
                                       c[TRAP]);
 
-    for ( signed i = 0; i < drops; i ++ ) {
+    for ( unsigned short i = 0; i < drops; i ++ ) {
         //int r_val = rand();
         // do some fancy random stuff to choose what's dropped
         // log what's dropped
