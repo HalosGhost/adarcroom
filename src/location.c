@@ -54,8 +54,8 @@ gather_wood (unsigned int r [], unsigned short c []) {
 void
 check_traps (unsigned int r [], unsigned short c []) {
 
-    unsigned short drops = c[TRAP] + (r[BAIT] < c[TRAP] ? 
-                                      (unsigned short )r[BAIT] : 
+    unsigned short drops = c[TRAP] + (r[BAIT] < c[TRAP] ?
+                                      (unsigned short )r[BAIT] :
                                       c[TRAP]);
 
     for ( int i = 0; i < drops; i ++ ) {
