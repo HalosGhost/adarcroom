@@ -9,7 +9,7 @@
 
 // Main Function //
 int
-main (int argc, char * argv []) {
+main (void) { // Eventually offer argument parsing?
 
     struct adr_state state = {
         .fire = ROARING,
