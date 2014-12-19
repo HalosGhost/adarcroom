@@ -21,16 +21,16 @@ adr_work (enum adr_v_type t, unsigned short n, unsigned int r []) {
 
     for ( int i = 0; i < 15; i ++ ) {
         signed short ci = adr_v_income[t][i];
-        unsigned short aci = (ci > 0 ? (unsigned short )ci : 
+        unsigned short aci = (ci > 0 ? (unsigned short )ci :
                                        (unsigned short )(ci * -1));
 
         if ( ci < 0 && r[i] < aci ) {
             return 1; // Not enough resources
         }
     } for ( int i = 0; i < 11; i ++ ) {
-        signed short ci = adr_v_income[t][i];                       
-        unsigned short aci = (ci > 0 ? (unsigned short )ci :        
-                                       (unsigned short )(ci * -1)); 
+        signed short ci = adr_v_income[t][i];
+        unsigned short aci = (ci > 0 ? (unsigned short )ci :
+                                       (unsigned short )(ci * -1));
 
         if ( ci > 0 ) {
             r[i] += n * aci;
