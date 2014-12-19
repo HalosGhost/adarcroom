@@ -1,6 +1,9 @@
-=========
-adarcroom
-=========
+==================
+adarcroom |gitter|
+==================
+
+.. |gitter|  image:: https://badges.gitter.im/Join%20Chat.svg
+   :target: https://gitter.im/HalosGhost/adarcroom?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge
 
 ``adarcroom`` is a native C/ncurses port of `Adarkroom <http://adarkroom.doublespeakgames.com/>`_.
 The goal of this project is truly to be a port, not a clone.
