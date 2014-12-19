@@ -198,15 +198,15 @@ struct adr_c craftables [] = {
     }
 };
 
-short
-adr_craft (enum adr_c_type t, unsigned short c [], unsigned int r []) {
+signed short
+adr_craft (enum adr_c_type t, unsigned short c [], unsigned r []) {
 
     if ( craftables[t].max != 0 && c[t] == craftables[t].max ) {
         return 1; // Maximum amount owned
     }
 
     if ( t == TRAP || t == HUT ) {
-        unsigned int price = (t == TRAP ? 10 + 10 * c[t] : 100 + 50 * c[t]);
+        unsigned price = (t == TRAP ? 10 + 10 * c[t] : 100 + 50 * c[t]);
 
         if ( r[WOOD] < price ) {
             return 2; // Not enough resources
@@ -217,11 +217,11 @@ adr_craft (enum adr_c_type t, unsigned short c [], unsigned int r []) {
         return 0;
     }
 
-    for ( int i = 0; i < 12; i ++ ) {
+    for ( signed i = 0; i < 12; i ++ ) {
         if ( r[i] < adr_c_cost[t][i] ) {
             return 2; // Not enough resources
         }
-    } for ( int i = 0; i < 12; i ++ ) {
+    } for ( signed i = 0; i < 12; i ++ ) {
         r[i] -= adr_c_cost[t][i];
     } c[t] += 1;
 

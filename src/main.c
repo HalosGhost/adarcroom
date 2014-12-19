@@ -8,7 +8,7 @@
 #define WLOG(x, y) wscrl(wins[LOG], -(x)); mvwprintw(wins[LOG], 0, 1, (y));
 
 // Main Function //
-int
+signed
 main (void) { // Eventually offer argument parsing?
 
     struct adr_state state = {
@@ -47,7 +47,7 @@ main (void) { // Eventually offer argument parsing?
     wrefresh(wins[INV]);
 
     for ( ; getch() != 'q'; );
-    for ( int i = 0; i <= SHIP; i ++ ) {
+    for ( enum WIN_TYPE i = 0; i <= SHIP; i ++ ) {
         delwin(wins[i]);
     }
 

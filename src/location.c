@@ -35,7 +35,7 @@ const char * TEMP_DESC [] = {
 };
 
 enum FIRE_STATE
-adr_stoke_fire (unsigned int r [], enum FIRE_STATE f) {
+adr_stoke_fire (unsigned r [], enum FIRE_STATE f) {
 
     if ( r[WOOD] < 5 || f == ROARING ) {
         return f;
@@ -46,19 +46,19 @@ adr_stoke_fire (unsigned int r [], enum FIRE_STATE f) {
 }
 
 void
-gather_wood (unsigned int r [], unsigned short c []) {
+gather_wood (unsigned r [], unsigned short c []) {
 
     r[WOOD] += (c[CART] > 0 ? 50 : 10);
 }
 
 void
-check_traps (unsigned int r [], unsigned short c []) {
+check_traps (unsigned r [], unsigned short c []) {
 
     unsigned short drops = c[TRAP] + (r[BAIT] < c[TRAP] ?
                                       (unsigned short )r[BAIT] :
                                       c[TRAP]);
 
-    for ( int i = 0; i < drops; i ++ ) {
+    for ( signed i = 0; i < drops; i ++ ) {
         //int r_val = rand();
         // do some fancy random stuff to choose what's dropped
         // log what's dropped

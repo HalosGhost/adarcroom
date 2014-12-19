@@ -10,10 +10,10 @@ enum adr_v_type {
     BLACKSMITH, MUNITIONIST
 };
 
-extern short adr_v_income [][16];
+extern signed short adr_v_income [][16];
 
-extern short
-adr_work (enum adr_v_type, unsigned short, unsigned int []);
+extern signed short
+adr_work (enum adr_v_type, unsigned short, unsigned []);
 
 #endif // ADR_VILLAGER_H
 // vim: set ts=4 sw=4 et:

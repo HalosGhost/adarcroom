@@ -11,7 +11,7 @@ enum adr_r_type {
 extern const unsigned short adr_r_cost [][3];
 
 extern void
-adr_trade (enum adr_r_type, unsigned int []);
+adr_trade (enum adr_r_type, unsigned []);
 
 #endif // ADR_RESOURCE_H
 // vim: set ts=4 sw=4 et:

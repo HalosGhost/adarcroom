@@ -19,7 +19,7 @@ const unsigned short adr_r_cost [][3] = {
 };
 
 void
-adr_trade (enum adr_r_type t, unsigned int r []) {
+adr_trade (enum adr_r_type t, unsigned r []) {
 
     if ( adr_r_cost[t][FUR] > r[FUR] ) {
         return; // Not enough fur

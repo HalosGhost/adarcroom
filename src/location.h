@@ -19,13 +19,13 @@ extern const char * FIRE_DESC [];
 extern const char * TEMP_DESC [];
 
 extern enum FIRE_STATE
-adr_stoke_fire (unsigned int [], enum FIRE_STATE);
+adr_stoke_fire (unsigned [], enum FIRE_STATE);
 
 extern void
-gather_wood (unsigned int [], unsigned short []);
+gather_wood (unsigned [], unsigned short []);
 
 extern void
-check_traps (unsigned int [], unsigned short []);
+check_traps (unsigned [], unsigned short []);
 
 #endif // ADR_LOCATION_H
 // vim: set ts=4 sw=4 et:

@@ -25,13 +25,13 @@ struct adr_c {
     char * avail_msg;
     char * build_msg;
     char * max_msg;
-    unsigned int max;
+    unsigned max;
 };
 
 extern struct adr_c craftables [];
 
-extern short
-adr_craft (enum adr_c_type, unsigned short [], unsigned int []);
+extern signed short
+adr_craft (enum adr_c_type, unsigned short [], unsigned []);
 
 #endif // ADR_CRAFTABLE_H
 // vim: set ts=4 sw=4 et:
