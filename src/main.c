@@ -22,8 +22,10 @@ main (void) { // Eventually offer argument parsing?
     };
 
     WINDOW * wins [SHIP + 1];
+
     initscr(); noecho(); cbreak(); curs_set(0);
     refresh();
+
     wins[LOG] = newwin(LINES - 1, 35, 1, 1);
     scrollok(wins[LOG], TRUE);
     wins[TRVL] = newwin(1, 69, 1, 38);
@@ -35,16 +37,15 @@ main (void) { // Eventually offer argument parsing?
     WLOG(1, FIRE_DESC[state.fire]);
     WLOG(1, TEMP_DESC[state.temp]);
     WLOG(craftables[RIFLE].build_ln, craftables[RIFLE].build_msg);
-    //mvwprintw(wins[LOG], 1, 1, "The fire is %s.\n", FIRE_DESC[adr_fire]);
-    //wprintw(wins[LOG], "The room is %s.", TEMP_DESC[adr_temp]);
     mvwprintw(wins[TRVL], 0, 1, "A %s Room", state.fire > FLICKERING ? "Firelit" : "Dark");
     wprintw(wins[TRVL], " | A Raucous Village");
     wprintw(wins[TRVL], " | A Dusty Path");
     wprintw(wins[TRVL], " | An Old Starship");
-    wrefresh(wins[LOG]);
-    wrefresh(wins[TRVL]);
-    wrefresh(wins[ROOM]);
-    wrefresh(wins[INV]);
+
+    // Refresh Windows
+    for ( enum WIN_TYPE i = 0; i <= ROOM; i ++ ) {
+        wrefresh(wins[i]);
+    }
 
     for ( ; getch() != 'q'; );
     for ( enum WIN_TYPE i = 0; i <= SHIP; i ++ ) {
