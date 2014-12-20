@@ -34,7 +34,7 @@ main (void) { // Eventually offer argument parsing?
 
     WLOG(1, FIRE_DESC[state.fire]);
     WLOG(1, TEMP_DESC[state.temp]);
-    WLOG(3, craftables[RIFLE].build_msg);
+    WLOG(craftables[RIFLE].build_ln, craftables[RIFLE].build_msg);
     //mvwprintw(wins[LOG], 1, 1, "The fire is %s.\n", FIRE_DESC[adr_fire]);
     //wprintw(wins[LOG], "The room is %s.", TEMP_DESC[adr_temp]);
     mvwprintw(wins[TRVL], 0, 1, "A %s Room", state.fire > FLICKERING ? "Firelit" : "Dark");

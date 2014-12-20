@@ -26,6 +26,9 @@ struct adr_c {
     char * build_msg;
     char * max_msg;
     unsigned max;
+    unsigned avail_ln: 11;
+    unsigned build_ln: 11;
+    unsigned max_ln:   10;
 };
 
 extern struct adr_c craftables [];
