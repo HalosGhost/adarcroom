@@ -46,13 +46,13 @@ adr_stoke_fire (unsigned r [], enum FIRE_STATE f) {
 }
 
 void
-gather_wood (unsigned r [], unsigned short c []) {
+adr_gather_wood (unsigned r [], unsigned short c []) {
 
     r[WOOD] += (c[CART] > 0 ? 50 : 10);
 }
 
 void
-check_traps (unsigned r [], unsigned short c []) {
+adr_check_traps (unsigned r [], unsigned short c []) {
 
     unsigned short drops = c[TRAP] + (r[BAIT] < c[TRAP] ?
                                       (unsigned short )r[BAIT] :

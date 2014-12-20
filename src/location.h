@@ -22,10 +22,10 @@ extern enum FIRE_STATE
 adr_stoke_fire (unsigned [], enum FIRE_STATE);
 
 extern void
-gather_wood (unsigned [], unsigned short []);
+adr_gather_wood (unsigned [], unsigned short []);
 
 extern void
-check_traps (unsigned [], unsigned short []);
+adr_check_traps (unsigned [], unsigned short []);
 
 #endif // ADR_LOCATION_H
 // vim: set ts=4 sw=4 et:
