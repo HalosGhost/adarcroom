@@ -40,12 +40,12 @@ main (void) { // Eventually offer argument parsing?
         getch(); endwin(); exit(1);
     }
 
-    wins[LOG] = newwin(LINES - 1, 35, 1, cc - 71);
+    wins[LOG] = newwin(LINES - 1, 35, 1, cc - 72);
     scrollok(wins[LOG], TRUE);
-    wins[TRVL] = newwin(1, 69, 1, cc - 34);
-    wins[ROOM] = newwin(LINES - 2, 69, 2, cc - 34);
+    wins[TRVL] = newwin(1, 69, 1, cc - 35);
+    wins[ROOM] = newwin(LINES - 2, 69, 2, cc - 35);
     mvwprintw(wins[ROOM], 1, 1, "cc = %d, cr = %d", cc, cr);
-    wins[INV] = newwin(LINES - 1, 38, 1, cc + 37);
+    wins[INV] = newwin(LINES - 1, 38, 1, cc + 36);
     box(wins[ROOM], 0, 0);
     box(wins[INV], 0, 0);
 
