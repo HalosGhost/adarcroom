@@ -33,19 +33,19 @@ main (void) { // Eventually offer argument parsing?
     initscr(); noecho(); cbreak(); curs_set(0);
     refresh();
 
-    signed cc = COLS / 2, cr = LINES / 2;
+    signed cc = COLS / 2 - 2, cr = LINES / 2;
 
     if ( COLS < 149 ) {
         printw("The classic interface requires a console at least 149 columns wide");
         getch(); endwin(); exit(1);
     }
 
-    wins[LOG] = newwin(LINES - 1, 35, 1, cc - 72);
+    wins[LOG] = newwin(LINES - 1, 35, 1, cc - 71);
     scrollok(wins[LOG], TRUE);
-    wins[TRVL] = newwin(1, 69, 1, cc - 35);
-    wins[ROOM] = newwin(LINES - 2, 69, 2, cc - 35);
+    wins[TRVL] = newwin(1, 69, 1, cc - 34);
+    wins[ROOM] = newwin(LINES - 2, 69, 2, cc - 34);
     mvwprintw(wins[ROOM], 1, 1, "cc = %d, cr = %d", cc, cr);
-    wins[INV] = newwin(LINES - 1, 38, 1, cc + 36);
+    wins[INV] = newwin(LINES - 1, 38, 1, cc + 37);
     box(wins[ROOM], 0, 0);
     box(wins[INV], 0, 0);
 
