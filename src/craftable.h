@@ -18,6 +18,10 @@ enum adr_c_type {
     BONE_SPEAR, I_SWORD, S_SWORD, RIFLE, LASER_RIFLE
 };
 
+enum BUILDER_STATE {
+    PRESENT, AWAKE, ADV
+};
+
 extern unsigned short adr_c_cost [][12];
 
 struct adr_c {

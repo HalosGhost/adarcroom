@@ -2,10 +2,6 @@
 #define ADR_LOCATION_H
 
 // Forward Declarations //
-enum LOCATION {
-    ROOM, OUTSIDE, PATH, WORLD, STARSHIP, SPACE
-};
-
 enum FIRE_STATE {
     DEAD, SMOLDERING, FLICKERING, BURNING, ROARING
 };

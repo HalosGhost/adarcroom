@@ -8,6 +8,13 @@
 
 #define WLOG(x, y) wscrl(wins[LOG], -(x)); mvwprintw(wins[LOG], 0, 1, (y));
 
+enum WIN_TYPE {
+    LOG, TRVL, INV, ROOM, OTSD, PATH, WRLD, SHIP
+};
+
+void
+update_travel_bar (WINDOW *, enum WIN_TYPE, struct adr_state *);
+
 // Main Function //
 signed
 main (void) { // Eventually offer argument parsing?
@@ -15,12 +22,11 @@ main (void) { // Eventually offer argument parsing?
     struct adr_state state = {
         .fire = ROARING,
         .temp = FREEZING,
-        .rs = { [WOOD] = 15 },
+        .rs = { [WOOD] = 15, [COMPASS] = 1 },
+        .bldr = AWAKE
     };
 
-    enum WIN_TYPE {
-        LOG, TRVL, INV, ROOM, OTSD, PATH, WRLD, SHIP
-    } cur_loc = ROOM;
+    enum WIN_TYPE cur_loc = ROOM;
 
     WINDOW * wins [SHIP + 1];
 
@@ -46,10 +52,8 @@ main (void) { // Eventually offer argument parsing?
     WLOG(1, FIRE_DESC[state.fire]);
     WLOG(1, TEMP_DESC[state.temp]);
     WLOG(craftables[RIFLE].build_ln, craftables[RIFLE].build_msg);
-    mvwprintw(wins[TRVL], 0, 1, "A %s Room", state.fire > FLICKERING ? "Firelit" : "Dark");
-    wprintw(wins[TRVL], " | A Raucous Village");
-    wprintw(wins[TRVL], " | A Dusty Path");
-    wprintw(wins[TRVL], " | An Old Starship");
+
+    update_travel_bar(wins[TRVL], cur_loc, &state);
 
     // Refresh Windows
     for ( enum WIN_TYPE i = 0; i <= INV; i ++ ) {
@@ -63,6 +67,43 @@ main (void) { // Eventually offer argument parsing?
 
     endwin();
     return 0;
+}
+
+void
+update_travel_bar (WINDOW * w, enum WIN_TYPE l, struct adr_state * s) {
+
+    if ( l == ROOM ) { wattron(w, A_REVERSE); }
+    mvwprintw(w, 0, 1, "A %s Room", s->fire > FLICKERING ? "Firelit" : "Dark");
+    wattroff(w, A_REVERSE);
+
+    if ( s->bldr >= AWAKE ) {
+        char * noise = s->v_pop >= 64 ? "Raucous" :
+                       s->v_pop >= 32 ? "Large"   :
+                       s->v_pop >= 16 ? "Modest"  :
+                       s->v_pop >=  1 ? "Tiny"    : "Silent";
+
+        char * title = s->cs[HUT] >  1 ? "Village" :
+                       s->cs[HUT] == 1 ? "Hut"     : "Forest";
+
+        wprintw(w, " | ");
+        if ( l == OTSD ) { wattron(w, A_REVERSE); }
+        wprintw(w, "A %s %s", noise, title);
+        wattroff(w, A_REVERSE);
+    }
+
+    if ( s->rs[COMPASS] ) {
+        wprintw(w, " | ");
+        if ( l == PATH ) { wattron(w, A_REVERSE); }
+        wprintw(w, "A Dusty Path");
+        wattroff(w, A_REVERSE);
+    }
+
+    if ( /* Found the starship */ 0 ) {
+        wprintw(w, " | ");
+        if ( l == SHIP ) { wattron(w, A_REVERSE); }
+        wprintw(w, "An Old Starship");
+        wattroff(w, A_REVERSE);
+    }
 }
 
 // vim: set ts=4 sw=4 et:
