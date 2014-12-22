@@ -3,6 +3,7 @@
 #include <ncurses.h>
 #include <getopt.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include "main.h"
 
 #define WLOG(x, y) wscrl(wins[LOG], -(x)); mvwprintw(wins[LOG], 0, 1, (y));
