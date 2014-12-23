@@ -43,9 +43,12 @@ main (void) { // Eventually offer argument parsing?
     wins[LOG] = newwin(LINES - 1, 35, 1, cc - 71);
     scrollok(wins[LOG], TRUE);
     wins[TRVL] = newwin(1, 69, 1, cc - 34);
-    wins[ROOM] = newwin(LINES - 2, 69, 2, cc - 34);
+    for ( enum WIN_TYPE i = ROOM; i <= SHIP; i ++ ) {
+        wins[i] = newwin(LINES - 2, 69, 2, cc - 34);
+        box(wins[i], 0, 0);
+    }
+
     wins[INV] = newwin(LINES - 1, 38, 1, cc + 37);
-    box(wins[ROOM], 0, 0);
     box(wins[INV], 0, 0);
 
     WLOG(1, FIRE_DESC[state.fire]);
@@ -60,9 +63,18 @@ main (void) { // Eventually offer argument parsing?
     for ( signed c = 0; c != 'q'; c = wgetch(stdscr) ) {
         switch ( c ) {
             case KEY_MOUSE:
-                if ( getmouse(&e) == OK && wenclose(wins[ROOM], e.y, e.x) ) {
-                    mvwprintw(wins[ROOM], 2, 1, "Wewt, mouse!");
-                    wrefresh(wins[ROOM]);
+                if ( getmouse(&e) == OK ) {
+                    if ( wenclose(wins[ROOM], e.y, e.x) ) {
+                        mvwprintw(wins[ROOM], 2, 1, "Wewt, mouse!");
+                        wrefresh(wins[ROOM]);
+                    } else if ( wenclose(wins[TRVL], e.y, e.x) ) {
+                        signed x = e.x - (cc - 34);
+                        cur_loc = x < 16           ? ROOM : // TODO: only allow switching to a panel if it is available
+                                  x > 16 && x < 36 ? OTSD :
+                                  x > 36 && x < 51 ? PATH : SHIP;
+                        update_travel_bar(wins[TRVL], cur_loc, &state);
+                        wrefresh(wins[cur_loc]);
+                    }
                 } break;
 
             default:
@@ -113,7 +125,7 @@ update_travel_bar (WINDOW * w, enum WIN_TYPE l, struct adr_state * s) {
         if ( l == SHIP ) { wattron(w, A_REVERSE); }
         wprintw(w, "An Old Starship");
         wattroff(w, A_REVERSE);
-    }
+    } wrefresh(w);
 }
 
 // vim: set ts=4 sw=4 et:

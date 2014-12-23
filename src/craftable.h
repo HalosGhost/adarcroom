@@ -19,7 +19,7 @@ enum adr_c_type {
 };
 
 enum BUILDER_STATE {
-    PRESENT, AWAKE, ADV
+    NONE, PRESENT, AWAKE, ADV
 };
 
 extern unsigned short adr_c_cost [][12];
