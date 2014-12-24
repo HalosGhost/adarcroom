@@ -69,9 +69,10 @@ main (void) { // Eventually offer argument parsing?
                         wrefresh(wins[ROOM]);
                     } else if ( wenclose(wins[TRVL], e.y, e.x) ) {
                         signed x = e.x - (cc - 34);
-                        cur_loc = x < 16           ? ROOM : // TODO: only allow switching to a panel if it is available
-                                  x > 16 && x < 36 ? OTSD :
-                                  x > 36 && x < 51 ? PATH : SHIP;
+                        cur_loc = x < 16                                  ? ROOM :
+                                  state.bldr >= AWAKE && x > 16 && x < 36 ? OTSD :
+                                  state.rs[COMPASS]   && x > 36 && x < 51 ? PATH :
+                                  /* found ship */ 0                      ? SHIP : cur_loc;
                         update_travel_bar(wins[TRVL], cur_loc, &state);
                         wrefresh(wins[cur_loc]);
                     }
