@@ -15,6 +15,13 @@ enum WIN_TYPE {
 void
 update_travel_bar (WINDOW *, enum WIN_TYPE, struct adr_state *);
 
+/**
+ * TODO:
+ **
+ * Inventory tracking and printing
+ * Track and test for discovery of the star ship
+ */
+
 // Main Function //
 signed
 main (void) { // Eventually offer argument parsing?
@@ -72,7 +79,7 @@ main (void) { // Eventually offer argument parsing?
                         cur_loc = x < 16                                  ? ROOM :
                                   state.bldr >= AWAKE && x > 16 && x < 36 ? OTSD :
                                   state.rs[COMPASS]   && x > 36 && x < 51 ? PATH :
-                                  /* found ship */ 0                      ? SHIP : cur_loc;
+                                  /* found ship */ (0)&& x > 51           ? SHIP : cur_loc;
                         update_travel_bar(wins[TRVL], cur_loc, &state);
                         wrefresh(wins[cur_loc]);
                     }
@@ -121,7 +128,7 @@ update_travel_bar (WINDOW * w, enum WIN_TYPE l, struct adr_state * s) {
         wattroff(w, A_REVERSE);
     }
 
-    if ( /* Found the starship */ 0 ) {
+    if ( /* Found the starship */ (0) ) {
         wprintw(w, " | ");
         if ( l == SHIP ) { wattron(w, A_REVERSE); }
         wprintw(w, "An Old Starship");
