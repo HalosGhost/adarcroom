@@ -5,15 +5,23 @@ To-Do
 #. [-] Ncurses interface
 
    - [-] logging
-   - [ ] buttons
-   - [ ] basic keybinds
+   - [-] buttons (sensibly)
+   - [ ] print inventory
+   - [ ] handle ``SIGWINCH``
 
 #. [-] State mechanics
 
-   - [X] Stoke Fire
-   - [ ] Room Temperature
-   - [X] Gather Wood
-   - [ ] Check Traps
+   - [X] stoke fire
+   - [ ] room temperature
+   - [X] gather wood
+   - [ ] check traps
+   - [ ] track inventory
+   - [ ] track discovery of starship
+   - [ ] user config file
+   - [ ] game saving
+
+      - [ ] Importing / Exporting
+      - [ ] Compatibility with official ADR (not sure this will be tenable)
 
 #. [ ] Random event mechanics
 
