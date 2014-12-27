@@ -109,7 +109,7 @@ update_travel_bar (WINDOW * w, enum WIN_TYPE l, struct adr_state * s) {
     if ( s->bldr >= AWAKE ) {
         char * noise = //s->v_pop >= 127 ? "Roaring" :
                        s->v_pop >= 64  ? "Raucous" :
-                       s->v_pop >= 32  ? "Buzy"    :
+                       s->v_pop >= 32  ? "Busy"    :
                        s->v_pop >= 16  ? "Sleepy"  :
                        s->v_pop >=  1  ? "Quiet"   : "Silent";
 
