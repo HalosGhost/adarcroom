@@ -6,7 +6,7 @@ To-Do
 
    - [-] logging
    - [-] buttons (sensibly)
-   - [ ] print inventory
+   - [-] print inventory
    - [ ] handle ``SIGWINCH``
 
 #. [-] State mechanics

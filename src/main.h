@@ -14,7 +14,9 @@ struct adr_state {
     enum ROOM_TEMP temp;
     enum BUILDER_STATE bldr;
     unsigned rs [ALIEN_ALLOY + 1];
+    bool rs_seen [ALIEN_ALLOY + 1];
     unsigned short cs [RIFLE + 1];
+    bool cs_seen [RIFLE + 1];
     unsigned char vs [MUNITIONIST + 1];
     unsigned char v_pop;
 };

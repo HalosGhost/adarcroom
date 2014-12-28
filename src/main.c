@@ -15,6 +15,9 @@ enum WIN_TYPE {
 void
 update_travel_bar (WINDOW *, enum WIN_TYPE, struct adr_state *);
 
+void
+update_inventory (WINDOW *, enum WIN_TYPE, struct adr_state *);
+
 /**
  * TODO:
  **
@@ -86,6 +89,7 @@ main (void) { // Eventually offer argument parsing?
                 } break;
 
             default:
+                update_inventory(wins[INV], cur_loc, &state);
                 update_travel_bar(wins[TRVL], cur_loc, &state);
 
                 for ( enum WIN_TYPE i = 0; i <= INV; i ++ ) {
@@ -107,7 +111,7 @@ update_travel_bar (WINDOW * w, enum WIN_TYPE l, struct adr_state * s) {
     wattroff(w, A_REVERSE);
 
     if ( s->bldr >= AWAKE ) {
-        char * noise = //s->v_pop >= 127 ? "Roaring" :
+        char * noise = //s->v_pop >= 128 ? "Roaring" :
                        s->v_pop >=  64 ? "Raucous" :
                        s->v_pop >=  32 ? "Busy"    :
                        s->v_pop >=  16 ? "Sleepy"  :
@@ -135,6 +139,20 @@ update_travel_bar (WINDOW * w, enum WIN_TYPE l, struct adr_state * s) {
         if ( l == SHIP ) { wattron(w, A_REVERSE); }
         wprintw(w, "An Old Starship");
         wattroff(w, A_REVERSE);
+    } wrefresh(w);
+}
+
+void
+update_inventory (WINDOW * w, enum WIN_TYPE l, struct adr_state * s) {
+
+    unsigned char lns = 1;
+    mvwprintw(w, 1, 1, "Stores:");
+    for ( enum adr_r_type i = FUR; i <= ALIEN_ALLOY; i ++ ) {
+        if ( s->rs[i] > 0 || s->rs_seen[i] ) {
+            lns += 1;
+            s->rs_seen[i] = true;
+            mvwprintw(w, lns, 1, "%u %s", s->rs[i], adr_r_name[i]);
+        }
     } wrefresh(w);
 }
 

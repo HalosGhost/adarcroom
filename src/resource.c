@@ -18,6 +18,17 @@ const unsigned short adr_r_cost [][3] = {
     [BOLAS]        = {                               [TEETH] = 10  }
 };
 
+const char * adr_r_name [] = {
+    [FUR]   = "fur",   [TEETH]   = "teeth",   [BAYONET]      = "bayonet",
+    [WOOD]  = "wood",  [CLOTH]   = "cloth",   [MEDECINE]     = "medecine",
+    [MEAT]  = "meat",  [STEEL]   = "steel",   [GRENADES]     = "grenades",
+    [BAIT]  = "bait",  [SCALES]  = "scales",  [CURED_MEAT]   = "cured meat",
+    [IRON]  = "iron",  [COMPASS] = "compass", [ENERGY_CELLS] = "energy cells",
+    [COAL]  = "coal",  [LEATHER] = "leather", [ALIEN_ALLOY]  = "alien alloy",
+    [BOLAS] = "bolas", [SULPHUR] = "sulphur",
+    [CHARM] = "charm", [BULLETS] = "bullets"
+};
+
 void
 adr_trade (enum adr_r_type t, unsigned r []) {
 

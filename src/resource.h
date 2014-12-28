@@ -10,6 +10,8 @@ enum adr_r_type {
 
 extern const unsigned short adr_r_cost [][3];
 
+extern const char * adr_r_name [];
+
 extern void
 adr_trade (enum adr_r_type, unsigned []);
 
