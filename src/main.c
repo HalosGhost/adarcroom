@@ -158,12 +158,13 @@ update_inventory (WINDOW * w, enum WIN_TYPE l, struct adr_state * s) {
 
     if ( s->bldr < CAPABLE ) { return; } // Crafting is unavailable
 
-    lns += 2; mvwprintw(w, lns, 1, "Crafted Items:");
+    lns += 2; mvwprintw(w, lns, 1, "Village:");
     for ( enum adr_c_type i = TRAP; i <= LASER_RIFLE; i ++ ) {
         if ( s->cs[i] > 0 || s->cs_seen[i] ) {
             lns += 1;
             s->cs_seen[i] = true;
             mvwprintw(w, lns, 1, "%u %s", s->cs[i], craftables[i].name);
+            if ( s->cs[i] > 1 ) { wprintw(w, "s"); }
         }
     } wrefresh(w);
 }
