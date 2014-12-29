@@ -33,7 +33,8 @@ main (void) { // Eventually offer argument parsing?
         .fire = ROARING,
         .temp = FREEZING,
         .rs = { [WOOD] = 15, [COMPASS] = 1 },
-        .bldr = AWAKE
+        .cs = { [HUT]  = 2 },
+        .bldr = CAPABLE
     };
 
     enum WIN_TYPE cur_loc = ROOM;
@@ -152,6 +153,17 @@ update_inventory (WINDOW * w, enum WIN_TYPE l, struct adr_state * s) {
             lns += 1;
             s->rs_seen[i] = true;
             mvwprintw(w, lns, 1, "%u %s", s->rs[i], adr_r_name[i]);
+        }
+    }
+
+    if ( s->bldr < CAPABLE ) { return; } // Crafting is unavailable
+
+    lns += 2; mvwprintw(w, lns, 1, "Crafted Items:");
+    for ( enum adr_c_type i = TRAP; i <= LASER_RIFLE; i ++ ) {
+        if ( s->cs[i] > 0 || s->cs_seen[i] ) {
+            lns += 1;
+            s->cs_seen[i] = true;
+            mvwprintw(w, lns, 1, "%u %s", s->cs[i], craftables[i].name);
         }
     } wrefresh(w);
 }
