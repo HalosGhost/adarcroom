@@ -150,9 +150,8 @@ update_inventory (WINDOW * w, enum WIN_TYPE l, struct adr_state * s) {
     mvwprintw(w, 1, 1, "Stores:");
     for ( enum adr_r_type i = FUR; i <= ALIEN_ALLOY; i ++ ) {
         if ( s->rs[i] > 0 || s->rs_seen[i] ) {
-            lns += 1;
             s->rs_seen[i] = true;
-            mvwprintw(w, lns, 1, "%u %s", s->rs[i], adr_r_name[i]);
+            mvwprintw(w, ++ lns, 1, "%u %s", s->rs[i], adr_r_name[i]);
         }
     }
 
