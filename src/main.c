@@ -16,7 +16,7 @@ void
 update_travel_bar (WINDOW *, enum WIN_TYPE, struct adr_state *);
 
 void
-update_inventory (WINDOW *, enum WIN_TYPE, struct adr_state *);
+update_inventory (WINDOW *, struct adr_state *);
 
 /**
  * TODO:
@@ -90,7 +90,7 @@ main (void) { // Eventually offer argument parsing?
                 } break;
 
             default:
-                update_inventory(wins[INV], cur_loc, &state);
+                update_inventory(wins[INV], &state);
                 update_travel_bar(wins[TRVL], cur_loc, &state);
 
                 for ( enum WIN_TYPE i = 0; i <= INV; i ++ ) {
@@ -144,7 +144,7 @@ update_travel_bar (WINDOW * w, enum WIN_TYPE l, struct adr_state * s) {
 }
 
 void
-update_inventory (WINDOW * w, enum WIN_TYPE l, struct adr_state * s) {
+update_inventory (WINDOW * w, struct adr_state * s) {
 
     unsigned char lns = 1;
     mvwprintw(w, 1, 1, "Stores:");
@@ -160,10 +160,9 @@ update_inventory (WINDOW * w, enum WIN_TYPE l, struct adr_state * s) {
     lns += 2; mvwprintw(w, lns, 1, "Village:");
     for ( enum adr_c_type i = TRAP; i <= LASER_RIFLE; i ++ ) {
         if ( s->cs[i] > 0 || s->cs_seen[i] ) {
-            lns += 1;
             s->cs_seen[i] = true;
-            mvwprintw(w, lns, 1, "%u %s", s->cs[i], craftables[i].name);
-            if ( s->cs[i] > 1 ) { wprintw(w, "s"); }
+            mvwprintw(w, ++ lns, 1, "%u %s", s->cs[i], craftables[i].name);
+            if ( s->cs[i] > 1 ) { wprintw(w, "s"); } // naïve pluralization
         }
     } wrefresh(w);
 }
