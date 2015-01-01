@@ -6,7 +6,7 @@ To-Do
 
    - [-] logging
    - [-] buttons (sensibly)
-   - [-] print inventory
+   - [X] print inventory
    - [ ] handle ``SIGWINCH``
 
 #. [-] State mechanics
@@ -15,7 +15,7 @@ To-Do
    - [ ] room temperature
    - [X] gather wood
    - [ ] check traps
-   - [ ] track inventory
+   - [X] track inventory
    - [ ] track discovery of starship
    - [ ] user config file
    - [ ] game saving
