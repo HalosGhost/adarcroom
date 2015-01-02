@@ -7,6 +7,7 @@
 #include "resource.h"
 #include "villager.h"
 #include "location.h"
+#include "path.h"
 
 // Forward Declarations //
 struct adr_state {
@@ -19,6 +20,7 @@ struct adr_state {
     bool cs_seen [RIFLE + 1];
     unsigned char vs [MUNITIONIST + 1];
     unsigned char v_pop;
+    bool ds [STARSHIP + 1];
 };
 
 #endif // ADR_MAIN_H
