@@ -16,7 +16,7 @@ To-Do
    - [X] gather wood
    - [ ] check traps
    - [X] track inventory
-   - [ ] track discovery of starship
+   - [X] track discovery of starship
    - [ ] user config file
    - [ ] game saving
 
