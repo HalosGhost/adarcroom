@@ -16,6 +16,9 @@ void
 update_travel_bar (WINDOW *, enum WIN_TYPE, struct adr_state *);
 
 void
+update_main_win (WINDOW *, WINDOW * [], enum WIN_TYPE, struct adr_state *);
+
+void
 update_inventory (WINDOW *, struct adr_state *);
 
 // Main Function //
@@ -34,13 +37,14 @@ main (void) { // Eventually offer argument parsing?
     enum WIN_TYPE cur_loc = ROOM;
 
     WINDOW * wins [SHIP + 1];
+    WINDOW * btns [LASER_RIFLE + 1];
 
     initscr(); noecho(); cbreak(); curs_set(0); keypad(stdscr, true);
     refresh();
 
     signed cc = COLS / 2 - 2, cr = LINES / 2;
 
-    if ( COLS < 149 ) {
+    if ( COLS < 149 ) { // Handle SIGWINCH instead of erroring out
         printw("The classic interface requires at least 149 columns");
         getch(); endwin(); exit(1);
     }
@@ -135,6 +139,13 @@ update_travel_bar (WINDOW * w, enum WIN_TYPE l, struct adr_state * s) {
         wprintw(w, "An Old Starship");
         wattroff(w, A_REVERSE);
     } wrefresh(w);
+}
+
+void
+update_main_win (WINDOW * w, WINDOW * bs [], enum WIN_TYPE l,
+                 struct adr_state * s) {
+
+    // create/update the buttons available for the current location
 }
 
 void
