@@ -146,6 +146,14 @@ update_main_win (WINDOW * w, WINDOW * bs [], enum WIN_TYPE l,
                  struct adr_state * s) {
 
     // create/update the buttons available for the current location
+    switch ( l ) {
+        case ROOM:
+            for ( enum adr_c_type i = TRAP; i <= LASER_RIFLE; i ++ ) {
+                if ( s->cs[i] > 0 || s->cs_seen[i] ) {
+                    // bs[i] = derwin(…
+                }
+            } break;
+    }
 }
 
 void
