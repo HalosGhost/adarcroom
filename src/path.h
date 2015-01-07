@@ -2,8 +2,7 @@
 #define ADR_PATH_H
 
 enum adr_d_type {
-    C_MINE, I_MINE, S_MINE,
-    SWAMP, STARSHIP
+    C_MINE, I_MINE, S_MINE, SWAMP, STARSHIP
 };
 
 extern const char * adr_d_name [];
