@@ -160,22 +160,22 @@ void
 update_inventory (WINDOW * w, struct adr_state * s) {
 
     unsigned char lns = 1;
-    mvwprintw(w, 1, 1, "Stores:");
+    mvwprintw(w, 1, 2, "Stores:");
     for ( enum adr_r_type i = FUR; i <= ALIEN_ALLOY; i ++ ) {
         if ( s->rs[i] > 0 || s->rs_seen[i] ) {
             s->rs_seen[i] = true;
-            mvwprintw(w, ++ lns, 1, "%u %s", s->rs[i], adr_r_name[i]);
+            mvwprintw(w, ++ lns, 2, "%u %s", s->rs[i], adr_r_name[i]);
         }
     }
 
     if ( s->bldr < CAPABLE ) { return; } // Crafting is unavailable
 
-    lns += 2; mvwprintw(w, lns, 1, "Village:");
+    lns += 2; mvwprintw(w, lns, 2, "Village:");
     for ( enum adr_c_type i = TRAP; i <= LASER_RIFLE; i ++ ) {
         if ( s->cs[i] > 0 || s->cs_seen[i] ) {
             s->cs_seen[i] = true;
-            mvwprintw(w, ++ lns, 1, "%u %s", s->cs[i], craftables[i].name);
-            if ( s->cs[i] > 1 ) { wprintw(w, "s"); } // naïve pluralization
+            mvwprintw(w, ++ lns, 2, "%u %s%c", s->cs[i], craftables[i].name,
+                                               s->cs[i] > 1 ? 's' : NULL); // naïve pluralization
         }
     } wrefresh(w);
 }
