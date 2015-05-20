@@ -3,7 +3,7 @@
 #include "villager.h"
 
 // Forward Declarations //
-signed short adr_v_income [][16] = {
+int16_t adr_v_income [][16] = {
     [GATHERER]     = { [WOOD] = 1                                          },
     [HUNTER]       = { [FUR]  = 1,        [MEAT] = 1                       },
     [TRAPPER]      = { [MEAT] = -1,       [BAIT] = 1                       },
@@ -16,27 +16,20 @@ signed short adr_v_income [][16] = {
     [MUNITIONIST]  = { [STEEL] = -1,      [SULPHUR] = -1, [BULLETS] = 1    }
 };
 
-signed short
-adr_work (enum adr_v_type t, unsigned short n, unsigned r []) {
+int16_t
+adr_work (enum adr_v_type t, uint16_t n, uint32_t r []) {
 
-    for ( signed i = 0; i < 15; i ++ ) {
-        signed short ci = adr_v_income[t][i];
-        unsigned short aci = (ci > 0 ? (unsigned short )ci :
-                                       (unsigned short )(ci * -1));
+    for ( int32_t i = 0; i < 15; i ++ ) {
+        int16_t ci = adr_v_income[t][i];
+        uint16_t aci = ci > 0 ? (uint16_t )ci : (uint16_t )(ci * -1);
 
         if ( ci < 0 && r[i] < aci ) {
             return 1; // Not enough resources
         }
-    } for ( signed i = 0; i < 11; i ++ ) {
-        signed short ci = adr_v_income[t][i];
-        unsigned short aci = (ci > 0 ? (unsigned short )ci :
-                                       (unsigned short )(-ci));
-
-        if ( ci > 0 ) {
-            r[i] += n * aci;
-        } else {
-            r[i] -= n * aci;
-        }
+    } for ( int32_t i = 0; i < 11; i ++ ) {
+        int16_t ci = adr_v_income[t][i];
+        uint16_t aci = ci > 0 ? (uint16_t )ci : (uint16_t )(-ci);
+		r[i] = ci > 0 ? r[i] + n * aci : r[i] - n * aci;
     } return 0;
 }
 // vim: set ts=4 sw=4 et:

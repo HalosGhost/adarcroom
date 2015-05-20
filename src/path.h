@@ -1,6 +1,8 @@
 #ifndef ADR_PATH_H
 #define ADR_PATH_H
 
+#include <stdint.h>
+
 enum adr_d_type {
     C_MINE, I_MINE, S_MINE, SWAMP, STARSHIP
 };

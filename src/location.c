@@ -14,28 +14,28 @@ const char * TRAP_DROPS [] = {
     [CHARM]  = "a crudely made charm"
 };
 
-#define _FIREP "The fire is "
+#define ADR_FIREP "The fire is "
 
 const char * FIRE_DESC [] = {
-    [DEAD]       = _FIREP "dead.",
-    [SMOLDERING] = _FIREP "smoldering.",
-    [FLICKERING] = _FIREP "flickering.",
-    [BURNING]    = _FIREP "burning.",
-    [ROARING]    = _FIREP "roaring."
+    [DEAD]       = ADR_FIREP "dead.",
+    [SMOLDERING] = ADR_FIREP "smoldering.",
+    [FLICKERING] = ADR_FIREP "flickering.",
+    [BURNING]    = ADR_FIREP "burning.",
+    [ROARING]    = ADR_FIREP "roaring."
 };
 
-#define _TEMPP "The room is "
+#define ADR_TEMPP "The room is "
 
 const char * TEMP_DESC [] = {
-    [FREEZING] = _TEMPP "freezing.",
-    [COLD]     = _TEMPP "cold.",
-    [MILD]     = _TEMPP "mild.",
-    [WARM]     = _TEMPP "warm.",
-    [HOT]      = _TEMPP "hot."
+    [FREEZING] = ADR_TEMPP "freezing.",
+    [COLD]     = ADR_TEMPP "cold.",
+    [MILD]     = ADR_TEMPP "mild.",
+    [WARM]     = ADR_TEMPP "warm.",
+    [HOT]      = ADR_TEMPP "hot."
 };
 
 enum FIRE_STATE
-adr_stoke_fire (unsigned r [], enum FIRE_STATE f) {
+adr_stoke_fire (uint32_t r [], enum FIRE_STATE f) {
 
     if ( r[WOOD] < 5 || f == ROARING ) {
         return f;
@@ -46,19 +46,19 @@ adr_stoke_fire (unsigned r [], enum FIRE_STATE f) {
 }
 
 void
-adr_gather_wood (unsigned r [], unsigned short c []) {
+adr_gather_wood (uint32_t r [], uint16_t c []) {
 
     r[WOOD] += (c[CART] > 0 ? 50 : 10);
 }
 
 void
-adr_check_traps (unsigned r [], unsigned short c []) {
+adr_check_traps (uint32_t r [], uint16_t c []) {
 
-    unsigned short drops = c[TRAP] + (r[BAIT] < c[TRAP] ?
-                                      (unsigned short )r[BAIT] :
-                                      c[TRAP]);
+    uint16_t drops = c[TRAP] + (r[BAIT] < c[TRAP] ?
+                               (uint16_t )r[BAIT] :
+                               c[TRAP]);
 
-    for ( unsigned short i = 0; i < drops; i ++ ) {
+    for ( uint16_t i = 0; i < drops; i ++ ) {
         //int r_val = rand();
         // do some fancy random stuff to choose what's dropped
         // log what's dropped

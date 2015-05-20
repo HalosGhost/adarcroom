@@ -3,7 +3,7 @@
 #include "craftable.h"
 
 // Forward Declarations //
-unsigned short adr_c_cost [][12] = {
+uint16_t adr_c_cost [][12] = {
     [CART]       = { [WOOD] = 30                                      },
     [LODGE]      = { [WOOD] = 200,    [FUR] = 10,      [MEAT] = 5     },
     [TRADE_POST] = { [WOOD] = 400,    [FUR] = 100                     },
@@ -234,15 +234,15 @@ struct adr_c craftables [] = {
     }
 };
 
-signed short
-adr_craft (enum adr_c_type t, unsigned short c [], unsigned r []) {
+int16_t
+adr_craft (enum adr_c_type t, uint16_t c [], uint32_t r []) {
 
     if ( craftables[t].max != 0 && c[t] == craftables[t].max ) {
         return 1; // Maximum amount owned
     }
 
     if ( t == TRAP || t == HUT ) {
-        unsigned price = (t == TRAP ? 10 + 10 * c[t] : 100 + 50 * c[t]);
+        uint32_t price = (t == TRAP ? 10 + 10 * c[t] : 100 + 50 * c[t]);
 
         if ( r[WOOD] < price ) {
             return 2; // Not enough resources
@@ -253,11 +253,11 @@ adr_craft (enum adr_c_type t, unsigned short c [], unsigned r []) {
         return 0;
     }
 
-    for ( signed i = 0; i < 12; i ++ ) {
+    for ( int32_t i = 0; i < 12; i ++ ) {
         if ( r[i] < adr_c_cost[t][i] ) {
             return 2; // Not enough resources
         }
-    } for ( signed i = 0; i < 12; i ++ ) {
+    } for ( int32_t i = 0; i < 12; i ++ ) {
         r[i] -= adr_c_cost[t][i];
     } c[t] += 1;
 

@@ -2,7 +2,7 @@
 #include "resource.h"
 
 // Forward Declarations //
-const unsigned short adr_r_cost [][3] = {
+const uint16_t adr_r_cost [][3] = {
     [SCALES]       = { [FUR] = 150                                 },
     [TEETH]        = { [FUR] = 300                                 },
     [COAL]         = { [FUR] = 200,                  [TEETH] = 50  },
@@ -30,7 +30,7 @@ const char * adr_r_name [] = {
 };
 
 void
-adr_trade (enum adr_r_type t, unsigned r []) {
+adr_trade (enum adr_r_type t, uint32_t r []) {
 
     if ( adr_r_cost[t][FUR] > r[FUR] ) {
         return; // Not enough fur

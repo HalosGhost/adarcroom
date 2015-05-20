@@ -159,7 +159,7 @@ update_main_win (WINDOW * w, WINDOW * bs [], enum WIN_TYPE l,
 void
 update_inventory (WINDOW * w, struct adr_state * s) {
 
-    unsigned char lns = 1;
+    uint8_t lns = 1;
     mvwprintw(w, 1, 2, "Stores:");
     for ( enum adr_r_type i = FUR; i <= ALIEN_ALLOY; i ++ ) {
         if ( s->rs[i] > 0 || s->rs_seen[i] ) {
@@ -175,7 +175,7 @@ update_inventory (WINDOW * w, struct adr_state * s) {
         if ( s->cs[i] > 0 || s->cs_seen[i] ) {
             s->cs_seen[i] = true;
             mvwprintw(w, ++ lns, 2, "%u %s%c", s->cs[i], craftables[i].name,
-                                               s->cs[i] > 1 ? 's' : NULL); // naïve pluralization
+                                               s->cs[i] > 1 ? 's' : '\0'); // naïve pluralization
         }
     } wrefresh(w);
 }
