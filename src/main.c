@@ -153,6 +153,10 @@ update_main_win (WINDOW * w, WINDOW * bs [], enum WIN_TYPE l,
                     // bs[i] = derwin(…
                 }
             } break;
+
+            case LOG:  case TRVL: case INV:
+            case OTSD: case PATH: case WRLD: case SHIP:
+                return;
     }
 }
 
